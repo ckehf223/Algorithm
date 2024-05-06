@@ -4,7 +4,7 @@ class Solution {
         String even = "";
         String odd = "";
         for(int data : num_list){
-            if(data % 2 == 0){
+            if(data % 2 ==0){
                 even += data;
             }else{
                 odd += data;
