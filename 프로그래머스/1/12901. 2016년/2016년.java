@@ -2,15 +2,14 @@ import java.util.*;
 class Solution {
     public String solution(int a, int b) {
         String answer = "";
-        Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2016);
-		cal.set(Calendar.MONTH, a-1);		
-		cal.set(Calendar.DAY_OF_MONTH, b);
-		
-		int day = cal.get(Calendar.DAY_OF_WEEK);
-		
-		String[] day_name = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
-		answer = day_name[day-1];
+        int[] monthDay = {31,29,31,30,31,30,31,31,30,31,30,31};
+        String[] day_name = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+        int dateA = 0;
+		for(int i=0;i<a-1;i++){
+            dateA += monthDay[i];
+        }
+        dateA += b-1;
+		answer = day_name[dateA%7];
         return answer;
     }
 }
