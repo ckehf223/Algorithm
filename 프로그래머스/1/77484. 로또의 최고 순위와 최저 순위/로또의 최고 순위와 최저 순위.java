@@ -3,22 +3,24 @@ class Solution {
         int[] answer = new int[2];
 		int count = 0;
 		int zero = 0;
-
-		for (int i = 0; i < lottos.length; i++) {
-			for (int j = 0; j < win_nums.length; j++) {
-				if (lottos[i] == win_nums[j]) {
-					count++;
-				}
-			}
-			if (lottos[i] == 0) {
-				zero++;
-			}
-		}
-
-		int score = count + zero;
-
-		answer[0] = (7 - score) == 7 ? 6 : 7 - score;
-		answer[1] = (7 - count) == 7 ? 6 : 7 - count;
+        
+        for(int i : lottos){
+            if(i == 0){
+                zero++;
+                continue;
+            }
+            for(int j: win_nums){
+                if(i == j){
+                    count++;
+                    continue;
+                }
+            }
+        }
+        answer[0] = getGrade(count+zero);
+        answer[1] = getGrade(count);
         return answer;
+    }
+    public int getGrade(int num){
+        return num == 0 ? 6 : 7 - num;
     }
 }
