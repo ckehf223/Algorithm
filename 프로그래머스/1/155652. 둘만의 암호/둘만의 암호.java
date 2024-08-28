@@ -11,12 +11,9 @@ class Solution {
 			int count = index;
 			char c = s.charAt(i);
 			for (int j = 0; j < count; j++) {
-				if (c+1 > 'z') {
-					c = 'a';
-				}else {
-					c = (char)(c+1);
-				}
-				if (map.getOrDefault(c, false)) {
+				
+				c = c == 'z' ? 'a':(char)(c+1);
+				if (skip.contains(String.valueOf(c))) {
 					count++;
 				} 
 			}
