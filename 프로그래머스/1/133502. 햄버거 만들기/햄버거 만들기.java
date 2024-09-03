@@ -1,25 +1,18 @@
-import java.util.*;
 class Solution {
     public int solution(int[] ingredient) {
         int answer = 0;
-        ArrayList<Integer> list = new ArrayList<>();
-		for(int i : ingredient) {
-			list.add(i);
-            
-			while(list.size() >= 4) {
-				int n = list.size();
-				if(!(list.get(n-4) == 1 
-                     && list.get(n-3) == 2 
-                     && list.get(n-2) == 3 
-                     && list.get(n-1) == 1))
-					break;
-                
-				for(int j=0;j<4;j++) {
-					list.remove(list.size()-1);
-				}
+		int[] arr = new int[ingredient.length];
+		int size = 0;
+		for (int i : ingredient) {
+			arr[size++] = i;
+			if (size >= 4 && arr[size - 1] == 1 
+                && arr[size - 2] == 3 
+                && arr[size - 3] == 2 
+                && arr[size - 4] == 1) {
+				size -= 4;
 				answer++;
 			}
-        }
+		}
         return answer;
     }
 }
