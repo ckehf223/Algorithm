@@ -1,16 +1,17 @@
 class Solution {
     public String solution(String s) {
 		StringBuilder sb = new StringBuilder();
-		
-		for(int i=0;i<s.toCharArray().length;i++) {
-			if(s.charAt(i) == ' ') {
-				sb.append(" ");
-				continue;
-			}
-			if(i == 0 || s.charAt(i-1) == ' ') {
-				sb.append(Character.toUpperCase(s.charAt(i)));
+		boolean flag = true;
+		for(char c : s.toCharArray()) {
+			if(flag) {
+				sb.append(Character.toUpperCase(c));
+                flag = false;
 			}else {
-				sb.append(Character.toLowerCase(s.charAt(i)));
+				sb.append(Character.toLowerCase(c));
+			}
+            
+            if(c == ' ') {
+                flag = true;
 			}
 		}
         return sb.toString();
