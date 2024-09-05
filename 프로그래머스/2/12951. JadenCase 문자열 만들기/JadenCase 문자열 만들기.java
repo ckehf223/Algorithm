@@ -5,14 +5,10 @@ class Solution {
 		for(char c : s.toCharArray()) {
 			if(flag) {
 				sb.append(Character.toUpperCase(c));
-                flag = false;
 			}else {
 				sb.append(Character.toLowerCase(c));
 			}
-            
-            if(c == ' ') {
-                flag = true;
-			}
+            flag = c == ' ' ? true : false ; 
 		}
         return sb.toString();
     }
