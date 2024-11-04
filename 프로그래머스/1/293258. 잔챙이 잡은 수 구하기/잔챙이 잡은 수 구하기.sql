@@ -1,0 +1,1 @@
+select count(*) AS FISH_COUNT from FISH_INFO WHERE LENGTH IS NULL;
